@@ -5,13 +5,13 @@ from sqlalchemy.sql.functions import session_user
 from contextlib import contextmanager
 
 
-#Configurações do SQLalchemy
+#Configuraï¿½ï¿½es do SQLalchemy
 engine = create_engine("mysql+pymysql://root:r8lh5pq9ts@localhost:3306/teste1")  
 class Base(DeclarativeBase):
     pass
 Sessionl = sessionmaker(bind=engine)
 
-#Abrir a sessão e fechar
+#Abrir a sessï¿½o e fechar
 @contextmanager
 def get_session() -> Session:
     session = Sessionl()
@@ -33,6 +33,5 @@ class job(Base):
     
 
 def criar():
-    print("teste lol")
+    print("teste lollllllllllllll")
     Base.metadata.create_all(bind=engine)
-    
