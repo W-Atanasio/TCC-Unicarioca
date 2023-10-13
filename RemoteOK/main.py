@@ -7,6 +7,7 @@ def converter(jp: busca_remoteok.job_b) -> job:
         id=jp.id,
         company=jp.company,
         position=jp.position,
+        location=jp.location,
         tags=",".join(jp.tags),
         salary_min=jp.salary_min,
         salary_max=jp.salary_max,
