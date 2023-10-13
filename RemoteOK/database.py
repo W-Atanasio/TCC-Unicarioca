@@ -25,7 +25,8 @@ class job(Base):
     __tablename__ = "job_rok"
     id:Mapped[int] = mapped_column(primary_key=True,index=True)
     company:Mapped[str] = mapped_column(String(255),nullable=False)
-    position:Mapped[str] = mapped_column(String(255),nullable=False)    
+    position:Mapped[str] = mapped_column(String(255),nullable=False)
+    location:Mapped[str] = mapped_column(String(255),nullable=True)
     tags:Mapped[str] = mapped_column(String(255),nullable=False)
     salary_min:Mapped[int] = mapped_column(nullable=False)
     salary_max:Mapped[int] = mapped_column(nullable=False)
@@ -34,3 +35,4 @@ class job(Base):
 def criar():
     print("teste lol")
     Base.metadata.create_all(bind=engine)
+    

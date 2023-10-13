@@ -7,7 +7,8 @@ url = "https://remoteok.com/api?api=1"
 class job_b:
     id: int
     company: str
-    position: str    
+    position: str 
+    location: str
     tags: list[str]
     salary_min: int
     salary_max: int
@@ -16,7 +17,8 @@ class job_b:
         return job_b(
         id=int(json['id']),
         company=json['company'],
-        position=json['position'],       
+        position=json['position'],
+        location=json['location'],
         tags=json['tags'],
         salary_min=int(json['salary_min']),
         salary_max=int(json['salary_max'])
