@@ -32,6 +32,8 @@ class job(Base):
     salary_max:Mapped[int] = mapped_column(nullable=False)
     
 
+    
+
 def criar():
     print("teste lollllllllllllll")
     Base.metadata.create_all(bind=engine)

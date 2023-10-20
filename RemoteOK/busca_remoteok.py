@@ -24,7 +24,6 @@ class job_b:
         salary_max=int(json['salary_max'])
         )
 
-
 def busca_job() -> list[job_b]:
     job_list = httpx.get(url).json()[1:]
     return [job_b.job_json(job_post) for job_post in job_list]

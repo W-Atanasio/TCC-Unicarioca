@@ -1,6 +1,10 @@
 import busca_remoteok
 from database import job, get_session
 import sessions
+from sqlalchemy.orm import Session
+
+
+
 
 def converter(jp: busca_remoteok.job_b) -> job:
     return job(
@@ -23,7 +27,4 @@ def buscar():
         sessions.save(session, job_list)
     print("funcionou teste teste")
     
-    
 
-
-buscar()
