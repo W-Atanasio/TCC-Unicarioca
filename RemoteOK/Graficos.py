@@ -6,18 +6,18 @@ from sqlalchemy import text
   
 #Pega os valores da tabela
 with engine.connect() as connection:
-    result = connection.execute(text("select company from job_rok"))
-   
-
-#Listas que recebem os valores da tabela
-c = []
-p = []
-
-#Repetiçao para adicionar os itens na lista
-for row in result:
-    c.append(str(row[0]))
-    
-#testando se os valores foram adicionados na lista
-print(c)
+    result = connection.execute(text("select position,count(position) from job_rok group by position"))
 
 #criação da tabela
+def tabelateste(result):
+    x = []
+    y = []
+
+    for row in result:
+      x.append(int(row[1]))
+      y.append(str(row[0]))
+    fig, ax = plt.subplots()
+    ax.pie(x, labels=y)
+    plt.show()
+
+tabelateste(result)

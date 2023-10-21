@@ -1,7 +1,7 @@
 from  dataclasses import dataclass
 import httpx
 
-url = "https://remoteok.com/api?api=1"
+url = "https://remoteok.com/api"
 
 @dataclass(frozen=True)
 class job_b:
