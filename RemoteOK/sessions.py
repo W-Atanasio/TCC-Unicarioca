@@ -12,3 +12,6 @@ def get_last(session: Session) -> Optional[job]:
 
 """def grafico(session: Session) -> list[job]:
     return session.query(job).all()"""
+    
+#Recebe os dados
+#def get_info():

@@ -2,11 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 from database import engine
 from sqlalchemy import text
-
+import pandas as pd
   
 #Pega os valores da tabela
 with engine.connect() as connection:
     result = connection.execute(text("select position,count(position) from job_rok group by position"))
+
+
 
 #criação da tabela
 def tabelateste(result):
@@ -20,4 +22,8 @@ def tabelateste(result):
     ax.pie(x, labels=y)
     plt.show()
 
-tabelateste(result)
+
+with engine.connect() as connection:
+    data = pd.read_sql_table("job_rok",connection)
+   
+ 

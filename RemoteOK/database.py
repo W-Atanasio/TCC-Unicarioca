@@ -35,5 +35,4 @@ class job(Base):
     
 
 def criar():
-    print("teste lollllllllllllll")
     Base.metadata.create_all(bind=engine)

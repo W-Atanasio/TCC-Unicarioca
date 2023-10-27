@@ -25,6 +25,8 @@ def buscar():
         if last_job is not None:
             job_list = [job_post for job_post in job_list if job_post.id > last_job.id]
         sessions.save(session, job_list)
-    print("funcionou teste teste")
+    print("funcionou")
     
+
+buscar()
 
