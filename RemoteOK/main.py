@@ -28,5 +28,5 @@ def buscar():
     print("funcionou")
     
 
-buscar()
+
 

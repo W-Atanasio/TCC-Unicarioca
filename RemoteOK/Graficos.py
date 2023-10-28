@@ -24,6 +24,10 @@ def tabelateste(result):
 
 
 with engine.connect() as connection:
-    data = pd.read_sql_table("job_rok",connection)
-   
- 
+    df = pd.read_sql_table("job_rok",connection)
+
+def position():
+    df['position'].value_counts().head(5).plot(kind='barh',ylabel='')                                              
+    plt.show()
+    
+position()
