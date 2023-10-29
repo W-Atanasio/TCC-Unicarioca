@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
 from database import engine
-from sqlalchemy import text
 import pandas as pd
   
 #Gera o dataframe com os dados do banco de dados
@@ -22,9 +20,9 @@ def linguagens():
     #Separa a string
     dft['tags'] = dft['tags'].str.split(r',')
     #Separa a lista em uma row
-    dft = dft.explode('tags')
-    # Group by e contagem
-    dft = dft.groupby('tags', sort=True).size().reset_index(name='count')
+    dft = (dft.explode('tags')
+           # Group by e contagem
+           .groupby('tags').size().reset_index(name='count'))
     #Filtra a dataframe
     dft = dft[dft['tags'].isin(li)]
     #Cria o grafico
