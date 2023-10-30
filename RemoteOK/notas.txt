@@ -1,7 +1,7 @@
 -Criar uma tabela das linguages de programações(
 Usar filter case + like %% para pegar as tags
-)
-
+)/Feito
+-Criar um metodo de seleção, ex: aperte 1 para fazer busca, 2 mostra as possiveis graficos que possam ser feitos
 -Fazer uma tabela com a media salarial de cada linguagem
 -Atualiza partes legados do codigo e atualizar pra 2.0
 -Organizar o codigo(Renomear algumas variaves,organizar os diretorios)
