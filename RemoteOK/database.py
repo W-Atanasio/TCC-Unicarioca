@@ -11,15 +11,12 @@ class Base(DeclarativeBase):
     pass
 Sessionl = sessionmaker(bind=engine)
 
-#Abrir a sess�o e fechar
 @contextmanager
 def get_session() -> Session:
     session = Sessionl()
     yield session
     session.close()
-
-
-
+    
 #Tabela
 class job(Base):
     __tablename__ = "job_rok"
@@ -30,9 +27,6 @@ class job(Base):
     tags:Mapped[str] = mapped_column(String(255),nullable=False)
     salary_min:Mapped[int] = mapped_column(nullable=False)
     salary_max:Mapped[int] = mapped_column(nullable=False)
-    
-
-    
 
 def criar():
     Base.metadata.create_all(bind=engine)

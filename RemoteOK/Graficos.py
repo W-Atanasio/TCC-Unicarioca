@@ -16,7 +16,7 @@ def position():
     
 def lin():
     #Clona a dataframe
-    dft = df
+    dft = df.copy()
     #Separa a string
     dft['tags'] = dft['tags'].str.split(r',')
     #Separa a lista em uma row
@@ -25,13 +25,13 @@ def lin():
            .groupby('tags').size().reset_index(name='count'))
     #Filtra a dataframe
     dft = dft[dft['tags'].isin(li)]
-    #Cria o grafico
+    #Cria o gráfico
     dft['count'].plot(kind='pie', labels=dft['tags'], autopct='%1.1f%%', ylabel= ' ', title="Porcentagem das linguagens mais utilizadas")
     plt.show()
 
 def sal_cargo():    
     # Divida os salários por 12 para representá-los mensalmente
-    dft = df
+    dft = df.copy()
     dft['salary_min'] /= 12
     dft['salary_max'] /= 12
     
@@ -54,7 +54,7 @@ def sal_cargo():
     plt.show()
     
 def sal_lin():
-    dft = df
+    dft = df.copy()
     dft['tags'] = dft['tags'].str.split(r',')
     dft = dft.explode('tags')
     dft = dft[dft['tags'].isin(li)]
@@ -62,7 +62,7 @@ def sal_lin():
     #Loop para calcular a media de cada linguagem, primeiro faz a media do min e max de cada linha e depois a media do resultado de cada linha
     for i in li:
         media.append(dft[(dft['tags'] == i)][['salary_min', 'salary_max']].mean().mean())
-    # Criando o gráfico de barras
+    #Cria o gráfico de barras
     cores = ['orange', 'skyblue', 'lightgreen', 'gold', 'red', 'steelblue', 'gray', 'tan', 'lightgray', 'blue', 'lightgreen']
     plt.figure(figsize=(9, 6))
     plt.bar(li, media, color=cores)
@@ -70,3 +70,4 @@ def sal_lin():
     plt.ylabel('Média de salário')
     plt.title('Média de salário por linguagem')
     plt.show()
+    

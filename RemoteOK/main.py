@@ -1,8 +1,15 @@
-import busca_remoteok
+﻿import busca_remoteok
 from database import job, get_session
 import sessions
 from sqlalchemy.orm import Session
-
+from Graficos import *
+import os
+clear = lambda: os.system('cls')
+MENU_PROMPT ="""
+Escolha uma das opções
+1)Adicionar novos valores a tabela
+2)Criar um gráfico das linguagens mais utilizadas
+"""
 def converter(jp: busca_remoteok.job_b) -> job:
     return job(
         id=jp.id,
@@ -22,8 +29,16 @@ def buscar():
         if last_job is not None:
             job_list = [job_post for job_post in job_list if job_post.id > last_job.id]
         sessions.save(session, job_list)
-    print("funcionou")
+    print("Banco de dados atualizado")
     
-
-
-
+def menu():
+    while (user_input :=input(MENU_PROMPT)) != "4":
+        if user_input == '1':
+            buscar()
+        elif user_input == '2':
+            lin()
+        elif user_input == '3':
+            sal_lin()
+        else:
+            print('Input invalido, tente novamente')
+menu()
