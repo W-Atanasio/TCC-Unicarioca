@@ -3,12 +3,13 @@ from database import job, get_session
 import sessions
 from sqlalchemy.orm import Session
 from Graficos import *
-import os
-clear = lambda: os.system('cls')
+
 MENU_PROMPT ="""
 Escolha uma das opções
 1)Adicionar novos valores a tabela
 2)Criar um gráfico das linguagens mais utilizadas
+3)
+4)Feche
 """
 def converter(jp: busca_remoteok.job_b) -> job:
     return job(

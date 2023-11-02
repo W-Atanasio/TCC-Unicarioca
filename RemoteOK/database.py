@@ -1,7 +1,6 @@
-from sqlalchemy import create_engine, String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Column, Integer, String,create_engine
+from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.sql.functions import session_user
 from contextlib import contextmanager
 
 
@@ -11,22 +10,26 @@ class Base(DeclarativeBase):
     pass
 Sessionl = sessionmaker(bind=engine)
 
+#
 @contextmanager
 def get_session() -> Session:
     session = Sessionl()
     yield session
+    session.commit()
     session.close()
+    
     
 #Tabela
 class job(Base):
     __tablename__ = "job_rok"
-    id:Mapped[int] = mapped_column(primary_key=True,index=True)
-    company:Mapped[str] = mapped_column(String(255),nullable=False)
-    position:Mapped[str] = mapped_column(String(255),nullable=False)
-    location:Mapped[str] = mapped_column(String(255),nullable=True)
-    tags:Mapped[str] = mapped_column(String(255),nullable=False)
-    salary_min:Mapped[int] = mapped_column(nullable=False)
-    salary_max:Mapped[int] = mapped_column(nullable=False)
+    id = Column(Integer, primary_key=True, index=True)
+    company = Column(String(255), nullable=False)
+    position = Column(String(255), nullable=False)
+    location = Column(String(255), nullable=True)
+    tags = Column(String(255), nullable=False)
+    salary_min = Column(Integer, nullable=False)
+    salary_max = Column(Integer, nullable=False)
+
 
 def criar():
     Base.metadata.create_all(bind=engine)

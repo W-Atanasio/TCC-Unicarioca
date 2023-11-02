@@ -17,11 +17,11 @@ def position():
 def lin():
     #Clona a dataframe
     dft = df.copy()
-    #Separa a string
+    #Separa a string array 
     dft['tags'] = dft['tags'].str.split(r',')
-    #Separa a lista em uma row
+    #Transforma cada elemento dentro da coluna tags em uma nova row
     dft = (dft.explode('tags')
-           #Group by e contagem
+           #Agrupa todas as tags e conta a quantidade de cada tipo
            .groupby('tags').size().reset_index(name='count'))
     #Filtra a dataframe
     dft = dft[dft['tags'].isin(li)]
@@ -30,8 +30,9 @@ def lin():
     plt.show()
 
 def sal_cargo():    
-    # Divida os salários por 12 para representá-los mensalmente
+    #Clona a dataframe
     dft = df.copy()
+    # Divida os salários por 12 para representá-los mensalmente
     dft['salary_min'] /= 12
     dft['salary_max'] /= 12
     
@@ -54,6 +55,7 @@ def sal_cargo():
     plt.show()
     
 def sal_lin():
+    #Clona a dataframe
     dft = df.copy()
     dft['tags'] = dft['tags'].str.split(r',')
     dft = dft.explode('tags')
@@ -70,4 +72,3 @@ def sal_lin():
     plt.ylabel('Média de salário')
     plt.title('Média de salário por linguagem')
     plt.show()
-    
