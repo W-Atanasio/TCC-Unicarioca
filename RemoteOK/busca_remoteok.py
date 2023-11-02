@@ -45,9 +45,7 @@ def converter(jp: job_b) -> job:
 
 def buscar():
     job_list = busca_job()
-    print(job_list)
     job_list = [converter(job_post) for job_post in job_list]
-    print(job_list)
     with get_session() as session:
         #Pega o id do ultimo job adicionado
         last_job = sessions.get_last(session)
