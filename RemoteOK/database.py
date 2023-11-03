@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from contextlib import contextmanager
 
 
-#Configura��es do SQLalchemy
+#Configurações do SQLalchemy
 engine = create_engine("mysql+pymysql://root:r8lh5pq9ts@localhost:3306/teste1")  
 class Base(DeclarativeBase):
     pass
@@ -29,7 +29,9 @@ class job(Base):
     tags = Column(String(255), nullable=False)
     salary_min = Column(Integer, nullable=False)
     salary_max = Column(Integer, nullable=False)
+    
 
 
 def criar():
     Base.metadata.create_all(bind=engine)
+    
