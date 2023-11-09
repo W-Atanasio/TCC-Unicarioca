@@ -72,3 +72,10 @@ def sal_lin():
     plt.ylabel('Média de salário')
     plt.title('Média de salário por linguagem')
     plt.show()
+
+def location():
+    dft = df.copy()
+    df['location'].value_counts().plot(kind='pie',ylabel='')
+    plt.show()
+    
+location()

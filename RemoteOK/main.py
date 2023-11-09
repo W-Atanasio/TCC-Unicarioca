@@ -7,12 +7,11 @@ Escolha uma das opções
 3)Criar um gráfico com a porcetagem de uso das linguagens de programação
 4)Cria um gráfico com o salário Mínimo e máximo dos 10 Cargos Mais Comuns (Mensal)
 5Criar um com a média de salário por linguagem
-6)
-7)Feche
+6)Feche
 """
 
 def menu():
-    while (user_input :=input(MENU_PROMPT)) != "7":
+    while (user_input :=input(MENU_PROMPT)) != "6":
         if user_input == '1':
             busca_remoteok.buscar()
         elif user_input == '2':
@@ -23,8 +22,6 @@ def menu():
             graficos.sal_cargo()
         elif user_input == '5':
             graficos.sal_lin()
-        elif user_input == '6':
-            print('teste')
         else:
             print('Input invalido, tente novamente')
 

@@ -2,7 +2,6 @@ from  dataclasses import dataclass
 import httpx
 from database import job, get_session
 import sessions
-from sqlalchemy.orm import Session
 
 url = "https://remoteok.com/api"
 #Classe para armazenar jobs
@@ -56,4 +55,5 @@ def buscar():
             job_list = [job_post for job_post in job_list if job_post.id > last_job.id]
         sessions.save(session, job_list)
     print("Banco de dados atualizado")
+    
 
