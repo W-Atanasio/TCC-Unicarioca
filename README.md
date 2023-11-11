@@ -5,3 +5,4 @@ Ferramenta para coletar informaçãoes sobre vagas de empregos do site https://r
 - busca_remoteok.py - Coleta os dados do remoteOk
 - graficos.py - Gera os graficos
 - main.py - Menu para executar o programa 
+- sessions.py - Executa comandos sql
